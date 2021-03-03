@@ -44,24 +44,9 @@ function wrapVerify(slackAuthOptions) {
       }
     }
     if (!slackAuthOptions.passReqToCallback) {
-      slackAuthOptions.verify(
-        accessToken,
-        scopes,
-        team,
-        extra,
-        profile,
-        verified
-      );
+      slackAuthOptions.verify(accessToken, scopes, team, extra, profile, verified);
     } else {
-      slackAuthOptions.verify(
-        req,
-        accessToken,
-        scopes,
-        team,
-        extra,
-        profile,
-        verified
-      );
+      slackAuthOptions.verify(req, accessToken, scopes, team, extra, profile, verified);
     }
   };
 }
@@ -73,7 +58,6 @@ function wrapVerify(slackAuthOptions) {
  * buttons in your application.
  */
 class SlackStrategy extends OAuth2Strategy {
-
   /**
    * Creates an instance of the SlackStrategy
    * @param {Object} options
@@ -107,8 +91,12 @@ class SlackStrategy extends OAuth2Strategy {
    * in `req.user`, `req.account`, or the customized `options.assignProperty`.
    */
   constructor(options, verify) {
-    if (!options.clientSecret) { throw new TypeError('SlackStrategy requires a clientSecret option'); }
-    if (!isFunction(verify)) { throw new TypeError('SlackStrategy requires a verify callback'); }
+    if (!options.clientSecret) {
+      throw new TypeError('SlackStrategy requires a clientSecret option');
+    }
+    if (!isFunction(verify)) {
+      throw new TypeError('SlackStrategy requires a verify callback');
+    }
     const mergedOptions = defaults(options || {}, {
       tokenURL: 'https://slack.com/api/oauth.access',
       authorizationURL: 'https://slack.com/oauth/authorize',
@@ -135,7 +123,9 @@ class SlackStrategy extends OAuth2Strategy {
         scopes = [mergedOptions.scope];
       }
       if (!scopes.includes('identity.basic')) {
-        throw new TypeError('SlackStrategy cannot retrieve user profiles without \'identity.basic\' scope');
+        throw new TypeError(
+          "SlackStrategy cannot retrieve user profiles without 'identity.basic' scope"
+        );
       }
     }
 
@@ -152,18 +142,23 @@ class SlackStrategy extends OAuth2Strategy {
    * @param {Function} done
    */
   userProfile(accessToken, done) {
-    needle.request('get', this.slackAuthOptions.profileURL, { token: accessToken }, (error, response, body) => {
-      // TODO: better errors
-      if (error) {
-        done(error);
-      } else if (!body.ok) {
-        done(new Error(body.error));
-      } else {
-        // eslint-disable-next-line no-param-reassign
-        delete body.ok;
-        done(null, body);
+    needle.request(
+      'get',
+      this.slackAuthOptions.profileURL,
+      { token: accessToken },
+      (error, response, body) => {
+        // TODO: better errors
+        if (error) {
+          done(error);
+        } else if (!body.ok) {
+          done(new Error(body.error));
+        } else {
+          // eslint-disable-next-line no-param-reassign
+          delete body.ok;
+          done(null, body);
+        }
       }
-    });
+    );
   }
 
   /**
@@ -173,11 +168,16 @@ class SlackStrategy extends OAuth2Strategy {
    * @return {Object}
    */
   authorizationParams(options) {
-    return pickBy(defaults({
-      team: options.team,
-    }, {
-      team: this.slackAuthOptions.team,
-    }));
+    return pickBy(
+      defaults(
+        {
+          team: options.team,
+        },
+        {
+          team: this.slackAuthOptions.team,
+        }
+      )
+    );
   }
 
   /**
@@ -246,7 +246,6 @@ class SlackStrategy extends OAuth2Strategy {
   /**
    * @external {http.IncomingMessage} https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_incomingmessage
    */
-
 }
 
 export default SlackStrategy;
