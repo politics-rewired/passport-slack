@@ -1,10 +1,19 @@
 {
-  "name": "@aoberoi/passport-slack",
+  "name": "@rewired/passport-slack",
   "version": "1.0.5",
   "description": "Slack authentication strategy for Passport",
   "main": "dist/index.js",
-  "repository": "https://github.com/aoberoi/passport-slack.git",
-  "author": "Ankur Oberoi <aoberoi@gmail.com>",
+  "repository": "https://github.com/politics-rewired/passport-slack.git",
+  "author": {
+    "name": "Ankur Oberoi",
+    "email": "aoberoi@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Benjamin Chrobot",
+      "email": "benjamin.chrobot@alum.mit.edu"
+    }
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=4.2.0"

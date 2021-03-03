@@ -1,4 +1,4 @@
-# @aoberoi/passport-slack
+# @rewired/passport-slack
 
 [Passport](http://passportjs.org/) strategy for authenticating with the Slack OAuth 2.0 API. This
 package is helpful to implement [Add to Slack](https://api.slack.com/docs/slack-button) and
@@ -7,7 +7,7 @@ package is helpful to implement [Add to Slack](https://api.slack.com/docs/slack-
 ## Install
 
 ```
-$ npm install --save passport @aoberoi/passport-slack
+$ npm install --save passport @rewired/passport-slack
 ```
 
 ## Usage

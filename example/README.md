@@ -1,6 +1,6 @@
-# @aoberoi/passport-slack-example
+# @rewired/passport-slack-example
 
-A simple example application for the @aoberoi/passport-slack module
+A simple example application for the @rewired/passport-slack module
 
 ## Running
 

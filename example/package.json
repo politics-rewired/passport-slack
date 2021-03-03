@@ -1,8 +1,8 @@
 {
-  "name": "@aoberoi/passport-slack-example",
+  "name": "@rewired/passport-slack-example",
   "version": "0.1.0",
   "private": true,
-  "description": "Example app for @aoberoi/passport-slack",
+  "description": "Example app for @rewired/passport-slack",
   "main": "server.js",
   "engines": {
     "node": ">=6.0.0"
@@ -10,7 +10,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ankur Oberoi <aoberoi@gmail.com>",
+  "author": {
+    "name": "Ankur Oberoi",
+    "email": "aoberoi@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.5.5",
