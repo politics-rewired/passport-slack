@@ -142,10 +142,15 @@ class SlackStrategy extends OAuth2Strategy {
    * @param {Function} done
    */
   userProfile(accessToken, done) {
+    const queryParams = {};
+    const options = {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    };
     needle.request(
       'get',
       this.slackAuthOptions.profileURL,
-      { token: accessToken },
+      queryParams,
+      options,
       (error, response, body) => {
         // TODO: better errors
         if (error) {
