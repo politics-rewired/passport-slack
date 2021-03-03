@@ -1,6 +1,6 @@
 {
   "name": "@rewired/passport-slack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Slack authentication strategy for Passport",
   "main": "dist/index.js",
   "repository": "https://github.com/politics-rewired/passport-slack.git",
